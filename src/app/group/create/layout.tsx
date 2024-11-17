@@ -60,7 +60,7 @@ type Props = {
 const CreateGroupLayout = ({ children }: Props) => {
   return (
     <div className="container h-full lg:h-screen grid grid-cols-1 lg:grid-cols-2 gap-6 content-center px-4">
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left mt-12">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left mt-12 lg:ml-10">
         <BackdropGradient className="w-full lg:w-8/12 h-48 lg:h-2/6 opacity-50">
           <h5 className="text-xl lg:text-2xl font-bold text-themeTextWhite">Stricker</h5>
           <GradientText element="H2" className="text-3xl lg:text-4xl font-semibold py-2 lg:py-1">
