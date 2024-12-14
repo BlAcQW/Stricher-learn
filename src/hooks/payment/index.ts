@@ -1,5 +1,5 @@
 import { onCreateNewGroup } from "@/actions/groups"
-import { onGetStripeClientSecret, onTransferCommission } from "@/actions/payment"
+import { onGetStripeClientSecret, onTransferCommission } from "@/actions/payments"
 import { CreateGroupSchema } from "@/components/forms/create-group/schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"

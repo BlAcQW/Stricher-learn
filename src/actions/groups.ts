@@ -289,7 +289,28 @@ export const onSearchGroups = async (
         return { status: 404 }
       }
     }
-    if (mode === "POSTS") {
+    if (mode === "POSTS")  {
+      const fetchedPosts = await client.post.findMany({
+        where: {
+          title: {
+            contains: query,
+            mode: "insensitive",
+          },
+        },
+        take: 6,
+        skip: paginate || 0,
+      })
+
+      if (fetchedPosts) {
+        if (fetchedPosts.length > 0) {
+          return {
+            status: 200,
+            posts: fetchedPosts,
+          }
+        }
+
+        return { status: 404 }
+      }
     }
   } catch (error) {
     return { status: "400", message: "Oops! something went wrong" }

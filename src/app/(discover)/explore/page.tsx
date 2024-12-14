@@ -1,7 +1,10 @@
 import { onGetExploreGroup } from "@/actions/groups"
 import {
-    QueryClient
+  dehydrate,
+  HydrationBoundary,
+  QueryClient
 } from "@tanstack/react-query"
+import ExplorePageContent from "./_components/explore-content"
 
 type Props = {}
 
@@ -24,12 +27,10 @@ const ExplorePage = async (props: Props) => {
   })
 
   return (
-    // <HydrationBoundary state={dehydrate(query)}>
-    //   <ExplorePageContent layout="SLIDER" />
-    // </HydrationBoundary>
-    <div >
-        <h1>Work in progres</h1>
-    </div>
+    <HydrationBoundary state={dehydrate(query)}>
+      <ExplorePageContent layout="SLIDER" />
+    </HydrationBoundary>
+    
   )
 }
 
