@@ -1,8 +1,9 @@
 "use client"
-// import { JoinButton } from "@/app/(discover)/about/_components/join-button"
+import { JoinButton } from "@/app/(discover)/about/_components/join-button"
 import { Card } from "@/components/ui/card"
 import { useGroupInfo } from "@/hooks/groups"
 import { cn, truncateString } from "@/lib/utils"
+import { Separator } from "@radix-ui/react-separator"
 
 type Props = {
   light?: boolean
@@ -31,13 +32,13 @@ const GroupSideWidget = ({ groupid, light, userid }: Props) => {
           {group.description && truncateString(group.description)}
         </p>
       </div>
-      {/* <Separator orientation="horizontal" className="bg-themeGray" />
+      <Separator orientation="horizontal" className="bg-themeGray" />
       {groupid && (
         <JoinButton
           groupid={groupid}
           owner={group.userId === userid ? true : false}
         />
-      )} */}
+      )}
     </Card>
   )
 }
