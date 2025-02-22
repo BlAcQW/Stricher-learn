@@ -1,16 +1,16 @@
 import {
-    AffiliateDuoToneBlack,
-    Buisness,
-    Chat,
-    Courses,
-    CreditCard,
-    Document,
-    Explore,
-    GlobeDuoToneBlack,
-    Home,
-    IDuotoneBlack,
-    PersonalDevelopment,
-    ZapDouToneBlack,
+  AffiliateDuoToneBlack,
+  Buisness,
+  Chat,
+  Courses,
+  CreditCard,
+  Document,
+  Explore,
+  GlobeDuoToneBlack,
+  Home,
+  IDuotoneBlack,
+  PersonalDevelopment,
+  ZapDouToneBlack,
 } from "@/icons"
   
   export type MenuProps = {
@@ -63,7 +63,7 @@ import {
       id: 1,
       label: "Courses",
       icon: <Courses />,
-      path: "#pricing",
+      path: "/",
       section: true,
     },
     {
