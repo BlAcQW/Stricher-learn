@@ -13,7 +13,7 @@ const CompleteOAuthAfterCallback = async () => {
   })
 
   if (complete.status == 200) {
-    redirect(`/group/create`)
+    redirect(`/explore`)
   }
 
   if (complete.status !== 200) {

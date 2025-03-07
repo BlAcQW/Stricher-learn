@@ -16,13 +16,19 @@ const Affiliate = async ({ params }: Props) => {
           Create and share an invitations link
         </CardDescription>
         <div className="mt-8 flex flex-col gap-y-2">
-          <div className="bg-black border-themeGray p-3 rounded-lg flex gap-x-5 items-center">
+          {/* <div className="bg-black border-themeGray p-3 rounded-lg flex gap-x-5 items-center">
             http://localhost:3000/affiliates/
             {affiliate.affiliate?.id}
             <CopyButton
               content={`http://localhost:3000/affiliates/${affiliate.affiliate?.id}`}
             />
-          </div>
+          </div> */}
+          <div className="bg-black border border-themeGray p-3 rounded-lg flex gap-x-5 items-center">
+  {`${process.env.NEXT_PUBLIC_BASE_URL}/affiliates/${affiliate.affiliate?.id}`}
+  <CopyButton
+    content={`${process.env.NEXT_PUBLIC_BASE_URL}/affiliates/${affiliate.affiliate?.id}`}
+  />
+</div>
           <CardDescription className="text-themeTextGray">
             This link will redirect users to the main page where <br />
             they can purchase or request memberships
