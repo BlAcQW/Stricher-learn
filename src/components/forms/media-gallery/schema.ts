@@ -40,40 +40,44 @@
 //     .optional(),
 // })
 
-import { z } from "zod";
+import { z } from "zod"
 
-export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2; // 2MB
-export const ACCEPTED_FILE_TYPES = ["image/png", "image/jpg", "image/jpeg"];
+export const MAX_UPLOAD_SIZE = 1024 * 1024 * 2 // 2MB
+export const ACCEPTED_FILE_TYPES = ["image/png", "image/jpg", "image/jpeg"]
 
 export const UpdateGallerySchema = z.object({
-  videourl: z
-    .string()
-    .refine(
-      (url) =>
-        /https?:\/\/(.+?\.)(?:youtube|loom)\.com(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/.test(
-          url ?? ""
-        ),
-      "Invalid URL, embedded videos must either be Loom or YouTube URLs."
-    )
-    .optional()
-    .or(z.literal("").transform(() => undefined)),
-  image: z
-    .any()
-    .refine(
-      (images: FileList) => {
-        if (!images.length) {
-          return true;
-        }
-        if (images.length > 4) {
-          return false;
-        }
-        const invalidFile = Array.from(images).find(
-          (file) =>
-            file.size > MAX_UPLOAD_SIZE || !ACCEPTED_FILE_TYPES.includes(file.type)
-        );
-        return !invalidFile;
-      },
-      { message: "Looks like your images are too big, too many, or of unsupported type." }
-    )
-    .optional(),
-});
+    videourl: z
+        .string()
+        .refine(
+            (url) =>
+                /https?:\/\/(.+?\.)(?:youtube|loom)\.com(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/.test(
+                    url ?? "",
+                ),
+            "Invalid URL, embedded videos must either be Loom or YouTube URLs.",
+        )
+        .optional()
+        .or(z.literal("").transform(() => undefined)),
+    image: z
+        .any()
+        .refine(
+            (images: FileList) => {
+                if (!images.length) {
+                    return true
+                }
+                if (images.length > 4) {
+                    return false
+                }
+                const invalidFile = Array.from(images).find(
+                    (file) =>
+                        file.size > MAX_UPLOAD_SIZE ||
+                        !ACCEPTED_FILE_TYPES.includes(file.type),
+                )
+                return !invalidFile
+            },
+            {
+                message:
+                    "Looks like your images are too big, too many, or of unsupported type.",
+            },
+        )
+        .optional(),
+})

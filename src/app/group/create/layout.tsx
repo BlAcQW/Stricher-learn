@@ -46,48 +46,59 @@
 
 // export default CreateGroupLayout
 
-
-
-import BackdropGradient from "@/components/global/backdrop-gradient";
-import GlassCard from "@/components/global/glass-card";
-import GradientText from "@/components/global/gradient-text";
-import { GROUPLE_CONSTANTS } from "@/constants";
+import BackdropGradient from "@/components/global/backdrop-gradient"
+import GlassCard from "@/components/global/glass-card"
+import GradientText from "@/components/global/gradient-text"
+import { GROUPLE_CONSTANTS } from "@/constants"
 
 type Props = {
-  children: React.ReactNode;
-};
+    children: React.ReactNode
+}
 
 const CreateGroupLayout = ({ children }: Props) => {
-  return (
-    <div className="container h-full lg:h-screen grid grid-cols-1 lg:grid-cols-2 gap-6 content-center px-4">
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left mt-12 lg:ml-10">
-        <BackdropGradient className="w-full lg:w-8/12 h-48 lg:h-2/6 opacity-50">
-          <h5 className="text-xl lg:text-2xl font-bold text-themeTextWhite">Stricker</h5>
-          <GradientText element="H2" className="text-3xl lg:text-4xl font-semibold py-2 lg:py-1">
-            Create Your Course
-          </GradientText>
-          <p className="text-themeTextGray text-sm lg:text-base">
-            Free for 14 days, then $99/month. Cancel anytime. All features. Unlimited everything. No hidden fees.
-          </p>
-          <div className="flex flex-col gap-3 mt-8 lg:mt-16">
-            {GROUPLE_CONSTANTS.createGroupPlaceholder.map((placeholder) => (
-              <div className="flex gap-2 items-center" key={placeholder.id}>
-                {placeholder.icon}
-                <p className="text-themeTextGray text-sm">{placeholder.label}</p>
-              </div>
-            ))}
-          </div>
-        </BackdropGradient>
-      </div>
-      <div className="flex justify-center lg:justify-end lg:ml-10">
-        <BackdropGradient className="w-full lg:w-6/12 h-64 lg:h-3/6 opacity-40">
-          <GlassCard className="w-full lg:w-10/12 xl:w-8/12 mt-8 lg:mt-16 py-6">
-            {children}
-          </GlassCard>
-        </BackdropGradient>
-      </div>
-    </div>
-  );
-};
+    return (
+        <div className="container h-full lg:h-screen grid grid-cols-1 lg:grid-cols-2 gap-6 content-center px-4">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left mt-12 lg:ml-10">
+                <BackdropGradient className="w-full lg:w-8/12 h-48 lg:h-2/6 opacity-50">
+                    <h5 className="text-xl lg:text-2xl font-bold text-themeTextWhite">
+                        Stricker
+                    </h5>
+                    <GradientText
+                        element="H2"
+                        className="text-3xl lg:text-4xl font-semibold py-2 lg:py-1"
+                    >
+                        Create Your Course
+                    </GradientText>
+                    <p className="text-themeTextGray text-sm lg:text-base">
+                        Free for 14 days, then $99/month. Cancel anytime. All
+                        features. Unlimited everything. No hidden fees.
+                    </p>
+                    <div className="flex flex-col gap-3 mt-8 lg:mt-16">
+                        {GROUPLE_CONSTANTS.createGroupPlaceholder.map(
+                            (placeholder) => (
+                                <div
+                                    className="flex gap-2 items-center"
+                                    key={placeholder.id}
+                                >
+                                    {placeholder.icon}
+                                    <p className="text-themeTextGray text-sm">
+                                        {placeholder.label}
+                                    </p>
+                                </div>
+                            ),
+                        )}
+                    </div>
+                </BackdropGradient>
+            </div>
+            <div className="flex justify-center lg:justify-end lg:ml-10">
+                <BackdropGradient className="w-full lg:w-6/12 h-64 lg:h-3/6 opacity-40">
+                    <GlassCard className="w-full lg:w-10/12 xl:w-8/12 mt-8 lg:mt-16 py-6">
+                        {children}
+                    </GlassCard>
+                </BackdropGradient>
+            </div>
+        </div>
+    )
+}
 
-export default CreateGroupLayout;
+export default CreateGroupLayout

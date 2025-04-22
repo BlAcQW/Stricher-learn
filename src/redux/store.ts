@@ -6,7 +6,7 @@ import chatReducer from "./slices/chats-slices"
 import infiniteScrollReducer from "./slices/infinite-scroll-slice"
 import onlineTrackingReducer from "./slices/online-member-slice"
 import searchReducer from "./slices/search-slice"
- 
+
 const rootReducer = combineReducers({
     //add all your reducers here
     searchReducer,

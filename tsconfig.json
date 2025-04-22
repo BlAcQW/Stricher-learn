@@ -22,6 +22,12 @@
         },
         "target": "ES2017"
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/global/sidebar"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        ".next/types/**/*.ts",
+        "src/components/global/sidebar"
+    ],
     "exclude": ["node_modules"]
 }
