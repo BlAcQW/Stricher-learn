@@ -86,12 +86,12 @@ const Menu = ({ orientation }: MenuProps) => {
     const groupid = params.groupid as string
 
     const constructPath = (menuPath: string) => {
-        return `/group/${groupid}${menuPath ? `/${menuPath}` : ''}`
+        return `/group/${groupid}${menuPath ? `/${menuPath}` : ""}`
     }
 
-    const menuItems = GROUPLE_CONSTANTS.groupPageMenu.map(menuItem => ({
+    const menuItems = GROUPLE_CONSTANTS.groupPageMenu.map((menuItem) => ({
         ...menuItem,
-        fullPath: constructPath(menuItem.path)
+        fullPath: constructPath(menuItem.path),
     }))
 
     const commonLinkProps = (fullPath: string) => ({
@@ -99,10 +99,10 @@ const Menu = ({ orientation }: MenuProps) => {
         onClick: () => onSetSection(fullPath),
         className: cn(
             "rounded-xl flex gap-2 py-2 px-4 items-center transition-colors",
-            section === fullPath 
-                ? "bg-[#09090B] border-[#27272A]" 
-                : "hover:bg-accent/20"
-        )
+            section === fullPath
+                ? "bg-[#09090B] border-[#27272A]"
+                : "hover:bg-accent/20",
+        ),
     })
 
     return (
@@ -114,12 +114,18 @@ const Menu = ({ orientation }: MenuProps) => {
                             <Link
                                 {...commonLinkProps(fullPath)}
                                 key={id}
-                                aria-current={section === fullPath ? "page" : undefined}
+                                aria-current={
+                                    section === fullPath ? "page" : undefined
+                                }
                             >
-                                <span className={cn(
-                                    "shrink-0",
-                                    section === fullPath ? "text-primary" : "text-muted-foreground"
-                                )}>
+                                <span
+                                    className={cn(
+                                        "shrink-0",
+                                        section === fullPath
+                                            ? "text-primary"
+                                            : "text-muted-foreground",
+                                    )}
+                                >
                                     {icon}
                                 </span>
                                 {label}
@@ -133,12 +139,18 @@ const Menu = ({ orientation }: MenuProps) => {
                         <Link
                             {...commonLinkProps(fullPath)}
                             key={id}
-                            aria-current={section === fullPath ? "page" : undefined}
+                            aria-current={
+                                section === fullPath ? "page" : undefined
+                            }
                         >
-                            <span className={cn(
-                                "shrink-0",
-                                section === fullPath ? "text-primary" : "text-muted-foreground"
-                            )}>
+                            <span
+                                className={cn(
+                                    "shrink-0",
+                                    section === fullPath
+                                        ? "text-primary"
+                                        : "text-muted-foreground",
+                                )}
+                            >
                                 {icon}
                             </span>
                             {label}

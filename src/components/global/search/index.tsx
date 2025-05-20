@@ -55,54 +55,52 @@ import { cn } from "@/lib/utils"
 import { SearchIcon } from "lucide-react"
 
 type Props = {
-  className?: string
-  inputStyle?: string
-  placeholder?: string
-  searchType: "GROUPS" | "POSTS"
-  iconStyle?: string
-  glass?: boolean
+    className?: string
+    inputStyle?: string
+    placeholder?: string
+    searchType: "GROUPS" | "POSTS"
+    iconStyle?: string
+    glass?: boolean
 }
 
 const Search = ({
-  searchType,
-  className,
-  glass,
-  iconStyle,
-  inputStyle,
-  placeholder,
+    searchType,
+    className,
+    glass,
+    iconStyle,
+    inputStyle,
+    placeholder,
 }: Props) => {
-  const { query, onSearchQuery } = useSearch(searchType)
+    const { query, onSearchQuery } = useSearch(searchType)
 
-  return (
-    <div
-      className={cn(
-        "flex w-full items-center gap-2 border-2",
-        glass && "backdrop-blur-2xl bg-opacity-20 backdrop-filter bg-clip-padding",
-        className
-      )}
-    >
-      {/* Icon wrapper */}
-      <div className="flex items-center justify-center h-10 w-10">
-        <SearchIcon
-          className={cn(
-            "h-5 w-5 text-themeTextGray",
-            iconStyle
-          )}
-        />
-      </div>
+    return (
+        <div
+            className={cn(
+                "flex w-full items-center gap-2 border-2",
+                glass &&
+                    "backdrop-blur-2xl bg-opacity-20 backdrop-filter bg-clip-padding",
+                className,
+            )}
+        >
+            {/* Icon wrapper */}
+            <div className="flex items-center justify-center h-10 w-10">
+                <SearchIcon
+                    className={cn("h-5 w-5 text-themeTextGray", iconStyle)}
+                />
+            </div>
 
-      <Input
-        onChange={onSearchQuery}
-        value={query}
-        className={cn(
-          "w-full border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0",
-          inputStyle
-        )}
-        placeholder={placeholder}
-        type="text"
-      />
-    </div>
-  )
+            <Input
+                onChange={onSearchQuery}
+                value={query}
+                className={cn(
+                    "w-full border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0",
+                    inputStyle,
+                )}
+                placeholder={placeholder}
+                type="text"
+            />
+        </div>
+    )
 }
 
 export default Search

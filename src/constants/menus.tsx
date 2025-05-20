@@ -9,7 +9,7 @@ import {
     GlobeDuoToneBlack,
     Home,
     IDuotoneBlack,
-    ZapDouToneBlack
+    ZapDouToneBlack,
 } from "@/icons"
 
 export type MenuProps = {
@@ -91,7 +91,6 @@ export const LANDING_PAGE_MENU: MenuProps[] = [
 //     },
 // ]
 
-
 export const GROUPLE_CONSTANTS = {
     groupPageMenu: [
         {
@@ -114,7 +113,7 @@ export const GROUPLE_CONSTANTS = {
             icon: <Buisness />,
             path: "/explore",
         },
-        
+
         {
             id: 4,
             label: "About",
@@ -127,9 +126,8 @@ export const GROUPLE_CONSTANTS = {
             icon: <Chat />,
             path: "/explore",
         },
-    ]
+    ],
 }
-
 
 export const SIDEBAR_SETTINGS_MENU: MenuProps[] = [
     {
