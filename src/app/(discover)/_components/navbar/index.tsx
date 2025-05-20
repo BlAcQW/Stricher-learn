@@ -36,7 +36,7 @@ export const Navbar = async () => {
                 <Link href={user.status === 200 ? `/group/create` : "/sign-in"}>
                     <Button
                         variant="outline"
-                        className="bg-themeBlack rounded-2xl flex gap-2 border-themeGray hover:bg-themeGray"
+                        className="aaaaa bg-themeBlack  rounded-2xl flex gap-2 border-themeGray hover:bg-themeGray"
                     >
                         <CheckBadge />
                         Create Group

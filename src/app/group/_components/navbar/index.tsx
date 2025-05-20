@@ -75,6 +75,13 @@ export const Navbar = ({ groupid, userid }: NavbarProps) => {
             </div>
 
             {/* Center Search (hidden on small screens) */}
+            {/* <div className="flex-1 flex justify-center">
+                <Search
+                    searchType="POSTS"
+                    className="hidden md:block rounded-full border-themeGray bg-black !opacity-100 px-3 w-full max-w-lg"
+                    placeholder="Search..."
+                />
+            </div> */}
             <div className="flex-1 flex justify-center">
                 <Search
                     searchType="POSTS"

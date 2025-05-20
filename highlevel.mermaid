@@ -1,0 +1,28 @@
+graph TB
+    subgraph "Database Layer"
+        PostgreSQL[(PostgreSQL Database)]
+        Prisma[Prisma ORM]
+        Supabase[Supabase Realtime]
+    end
+
+    subgraph "Application Layer"
+        NextJS[Next.js App]
+        API[API Routes]
+        ServerActions[Server Actions]
+    end
+
+    subgraph "Client Layer"
+        React[React Components]
+        Redux[Redux Store]
+        ReactQuery[React Query]
+    end
+
+    NextJS --> API
+    NextJS --> ServerActions
+    API --> Prisma
+    ServerActions --> Prisma
+    Prisma --> PostgreSQL
+    Supabase --> PostgreSQL
+    React --> ReactQuery
+    React --> Redux
+    ReactQuery --> API

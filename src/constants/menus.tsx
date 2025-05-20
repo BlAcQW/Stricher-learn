@@ -9,8 +9,7 @@ import {
     GlobeDuoToneBlack,
     Home,
     IDuotoneBlack,
-    PersonalDevelopment,
-    ZapDouToneBlack,
+    ZapDouToneBlack
 } from "@/icons"
 
 export type MenuProps = {
@@ -51,46 +50,86 @@ export const LANDING_PAGE_MENU: MenuProps[] = [
         path: "/explore",
     },
 ]
-export const GROUP_PAGE_MENU: MenuProps[] = [
-    {
-        id: 0,
-        label: "Group",
-        icon: <Home />,
-        path: "/",
-        section: true,
-    },
-    {
-        id: 1,
-        label: "Courses",
-        icon: <Courses />,
-        path: "/",
-        section: true,
-    },
-    {
-        id: 2,
-        label: "Events",
-        icon: <Buisness />,
-        path: "/explore",
-    },
-    {
-        id: 3,
-        label: "Members",
-        icon: <PersonalDevelopment />,
-        path: "/explore",
-    },
-    {
-        id: 4,
-        label: "About",
-        icon: <Document />,
-        path: "/explore",
-    },
-    {
-        id: 5,
-        label: "Huddle",
-        icon: <Chat />,
-        path: "/explore",
-    },
-]
+// export const GROUP_PAGE_MENU: MenuProps[] = [
+//     {
+//         id: 0,
+//         label: "Group",
+//         icon: <Home />,
+//         path: "/",
+//         section: true,
+//     },
+//     {
+//         id: 1,
+//         label: "Courses",
+//         icon: <Courses />,
+//         path: "/",
+//         section: true,
+//     },
+//     {
+//         id: 2,
+//         label: "Events",
+//         icon: <Buisness />,
+//         path: "/explore",
+//     },
+//     {
+//         id: 3,
+//         label: "Members",
+//         icon: <PersonalDevelopment />,
+//         path: "/explore",
+//     },
+//     {
+//         id: 4,
+//         label: "About",
+//         icon: <Document />,
+//         path: "/explore",
+//     },
+//     {
+//         id: 5,
+//         label: "Huddle",
+//         icon: <Chat />,
+//         path: "/explore",
+//     },
+// ]
+
+
+export const GROUPLE_CONSTANTS = {
+    groupPageMenu: [
+        {
+            id: 0,
+            label: "Group",
+            icon: <Home />,
+            path: "", // Will become /group/[groupId]
+            section: true,
+        },
+        {
+            id: 1,
+            label: "Courses",
+            icon: <Courses />,
+            path: "courses", // Will become /group/[groupId]/courses
+            section: true,
+        },
+        {
+            id: 2,
+            label: "Events",
+            icon: <Buisness />,
+            path: "/explore",
+        },
+        
+        {
+            id: 4,
+            label: "About",
+            icon: <Document />,
+            path: "/explore",
+        },
+        {
+            id: 5,
+            label: "Huddle",
+            icon: <Chat />,
+            path: "/explore",
+        },
+    ]
+}
+
 
 export const SIDEBAR_SETTINGS_MENU: MenuProps[] = [
     {
