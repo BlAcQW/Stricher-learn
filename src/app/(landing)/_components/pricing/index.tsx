@@ -28,7 +28,7 @@ export const PricingSection = (props: Props) => {
             </BackdropGradient>
             <Card className="p-7 mt-10 md:w-auto w-full bg-themeBlack border-themeGray">
                 <div className="flex flex-col gap-2">
-                    <CardTitle>99/m</CardTitle>
+                    <CardTitle>50/m</CardTitle>
                     <CardDescription className="text-[#B4B0AE]">
                         Great if you’re just getting started
                     </CardDescription>
@@ -45,24 +45,21 @@ export const PricingSection = (props: Props) => {
                     <p>Features</p>
                     <span className="flex gap-2 mt-3 items-center">
                         <Check />
-                        Feature number 1
+                        Group chat
                     </span>
                     <span className="flex gap-2 items-center">
                         <Check />
-                        Feature number 1
+                        Messaging
                     </span>
                     <span className="flex gap-2 items-center">
                         <Check />
-                        Feature number 1
+                        Landing page Personalization
                     </span>
                     <span className="flex gap-2 items-center">
                         <Check />
-                        Feature number 1
+                        Post creation 
                     </span>
-                    <span className="flex gap-2 items-center">
-                        <Check />
-                        Feature number 1
-                    </span>
+                  
                 </div>
             </Card>
         </div>

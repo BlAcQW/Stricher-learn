@@ -69,7 +69,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { GROUPLE_CONSTANTS } from "@/constants/menus"
+import { GROUP_PAGE_MENU } from "@/constants/menus"
 
 import { useNavigation } from "@/hooks/navigation"
 import { cn } from "@/lib/utils"
@@ -89,7 +89,7 @@ const Menu = ({ orientation }: MenuProps) => {
         return `/group/${groupid}${menuPath ? `/${menuPath}` : ""}`
     }
 
-    const menuItems = GROUPLE_CONSTANTS.groupPageMenu.map((menuItem) => ({
+    const menuItems = GROUP_PAGE_MENU.groupPageMenu.map((menuItem) => ({
         ...menuItem,
         fullPath: constructPath(menuItem.path),
     }))

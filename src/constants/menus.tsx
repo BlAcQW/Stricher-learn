@@ -24,8 +24,9 @@ export type MenuProps = {
 export type GroupMenuProps = {
     id: number
     label: string
-    icon: JSX.Element
+    icon?: JSX.Element
     path: string
+    section?: boolean
 }
 
 export const LANDING_PAGE_MENU: MenuProps[] = [
@@ -91,7 +92,7 @@ export const LANDING_PAGE_MENU: MenuProps[] = [
 //     },
 // ]
 
-export const GROUPLE_CONSTANTS = {
+export const GROUP_PAGE_MENU = {
     groupPageMenu: [
         {
             id: 0,
