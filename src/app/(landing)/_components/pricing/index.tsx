@@ -57,9 +57,8 @@ export const PricingSection = (props: Props) => {
                     </span>
                     <span className="flex gap-2 items-center">
                         <Check />
-                        Post creation 
+                        Post creation
                     </span>
-                  
                 </div>
             </Card>
         </div>
