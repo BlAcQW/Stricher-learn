@@ -35,10 +35,13 @@ const SignUpPage = () => {
     return (
         <div className="max-w-md mx-auto p-6 bg-themeCardBg rounded-lg shadow-lg">
             <div className="text-center mb-8">
-                <h1 className="text-2xl font-bold text-themeTextWhite mb-2">Create Your Account</h1>
+                <h1 className="text-2xl font-bold text-themeTextWhite mb-2">
+                    Create Your Account
+                </h1>
                 <p className="text-themeTextGray">
-                    Join our community to connect with people worldwide, create groups, 
-                    and access courses to grow personally and professionally.
+                    Join our community to connect with people worldwide, create
+                    groups, and access courses to grow personally and
+                    professionally.
                 </p>
             </div>
 
@@ -52,13 +55,16 @@ const SignUpPage = () => {
             </div>
 
             <div className="space-y-4">
-                <GoogleAuthButton method="signup"  />
-                
+                <GoogleAuthButton method="signup" />
+
                 <div className="text-center mt-6">
                     <p className="text-themeTextGray text-sm">
-                        Already have an account?{' '}
+                        Already have an account?{" "}
                         <Link href="/sign-in" passHref>
-                            <Button variant="link" className="text-themeAccent hover:text-themeAccentHover p-0 h-auto">
+                            <Button
+                                variant="link"
+                                className="text-themeAccent hover:text-themeAccentHover p-0 h-auto"
+                            >
                                 Sign in here
                             </Button>
                         </Link>

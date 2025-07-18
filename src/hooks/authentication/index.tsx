@@ -121,65 +121,65 @@ export const useAuthSignUp = () => {
     const onGenerateCode = async (email: string, password: string) => {
         // Early return if Clerk isn't loaded
         if (!isLoaded) {
-          toast.error("System Error", {
-            description: "Authentication service is not ready. Please try again shortly.",
-          });
-          return;
+            toast.error("System Error", {
+                description:
+                    "Authentication service is not ready. Please try again shortly.",
+            })
+            return
         }
-      
+
         // Validate inputs
         if (!email || !password) {
-          toast.error("Validation Error", {
-            description: "Both email and password are required",
-          });
-          return;
+            toast.error("Validation Error", {
+                description: "Both email and password are required",
+            })
+            return
         }
-      
+
         try {
-          // Start the sign-up process
-          const signUpAttempt = await signUp.create({
-            emailAddress: email,
-            password: password,
-          });
-      
-          // Check if verification is needed
-          if (signUpAttempt.status === 'complete') {
-            // Handle immediate success (unlikely but possible)
-            toast.success("Account Created", {
-              description: "Your account has been successfully created!",
-            });
-            return;
-          }
-      
-          // Prepare email verification
-          await signUp.prepareEmailAddressVerification({
-            strategy: "email_code",
-          });
-      
-          // Move to verification step
-          setVerifying(true);
-          
-          toast.success("Verification Sent", {
-            description: "Check your email for the verification code",
-          });
-      
+            // Start the sign-up process
+            const signUpAttempt = await signUp.create({
+                emailAddress: email,
+                password: password,
+            })
+
+            // Check if verification is needed
+            if (signUpAttempt.status === "complete") {
+                // Handle immediate success (unlikely but possible)
+                toast.success("Account Created", {
+                    description: "Your account has been successfully created!",
+                })
+                return
+            }
+
+            // Prepare email verification
+            await signUp.prepareEmailAddressVerification({
+                strategy: "email_code",
+            })
+
+            // Move to verification step
+            setVerifying(true)
+
+            toast.success("Verification Sent", {
+                description: "Check your email for the verification code",
+            })
         } catch (error: any) {
-          console.error("Signup Error:", error);
-          
-          // Handle known Clerk errors
-          if (error.errors) {
-            const firstError = error.errors[0];
-            toast.error("Signup Failed", {
-              description: firstError.message || "Invalid signup attempt",
-            });
-          } else {
-            toast.error("Unexpected Error", {
-              description: "Could not complete signup. Please try again.",
-            });
-          }
+            console.error("Signup Error:", error)
+
+            // Handle known Clerk errors
+            if (error.errors) {
+                const firstError = error.errors[0]
+                toast.error("Signup Failed", {
+                    description: firstError.message || "Invalid signup attempt",
+                })
+            } else {
+                toast.error("Unexpected Error", {
+                    description: "Could not complete signup. Please try again.",
+                })
+            }
         }
-      };
-      
+    }
+
     const onInitiateUserRegistration = handleSubmit(async (values) => {
         if (!isLoaded)
             return toast("Error", {

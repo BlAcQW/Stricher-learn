@@ -14,13 +14,12 @@ const PricingSection = dynamic(
 export default function Home() {
     return (
         <main className="md:px-10 py-20 flex flex-col gap-20">
-            <SplashCursor/>
+            <SplashCursor />
             <div>
                 <CallToAction />
                 <DashboardSnippet />
                 <PricingSection />
             </div>
-            
         </main>
     )
 }

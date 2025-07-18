@@ -89,8 +89,6 @@
 //         return `/group/${groupid}${menuPath ? `/${menuPath}`  : ""}`
 //     }
 
-    
-    
 //     const menuItems = GROUP_PAGE_MENU.groupPageMenu.map((menuItem) => ({
 //         ...menuItem,
 //         fullPath: constructPath(menuItem.path),
@@ -166,7 +164,6 @@
 
 // export default Menu
 
-
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
@@ -186,8 +183,10 @@ const Menu = ({ orientation }: MenuProps) => {
     const groupid = params.groupid as string
     const channelid = params.channelid as string // Add this for channel routes
 
-    const constructPath = (menuItem: typeof GROUP_PAGE_MENU.groupPageMenu[0]) => {
-        switch(menuItem.id) {
+    const constructPath = (
+        menuItem: (typeof GROUP_PAGE_MENU.groupPageMenu)[0],
+    ) => {
+        switch (menuItem.id) {
             case 0: // Group
                 return `/group/${groupid}/channel/${channelid}`
             case 1: // Courses
