@@ -92,6 +92,44 @@ export const LANDING_PAGE_MENU: MenuProps[] = [
 //     },
 // ]
 
+// export const GROUP_PAGE_MENU = {
+//     groupPageMenu: [
+//         {
+//             id: 0,
+//             label: "Group",
+//             icon: <Home />,
+//             path: "", // Will become /group/[groupId]
+//             section: true,
+//         },
+//         {
+//             id: 1,
+//             label: "Courses",
+//             icon: <Courses />,
+//             path: "courses", // Will become /group/[groupId]/courses
+//             section: true,
+//         },
+//         {
+//             id: 2,
+//             label: "Events",
+//             icon: <Buisness />,
+//             path: "/explore",
+//         },
+
+//         {
+//             id: 4,
+//             label: "About",
+//             icon: <Document />,
+//             path: "/about",
+//         },
+//         {
+//             id: 5,
+//             label: "Huddle",
+//             icon: <Chat />,
+//             path: "/explore",
+//         },
+//     ],
+// }
+
 export const GROUP_PAGE_MENU = {
     groupPageMenu: [
         {
@@ -112,24 +150,22 @@ export const GROUP_PAGE_MENU = {
             id: 2,
             label: "Events",
             icon: <Buisness />,
-            path: "/explore",
+            path: "events", // Will become /group/[groupId]/events
         },
-
         {
             id: 4,
             label: "About",
             icon: <Document />,
-            path: "/explore",
+            path: "about", // Will become /about/[groupId]
         },
         {
             id: 5,
             label: "Huddle",
             icon: <Chat />,
-            path: "/explore",
+            path: "huddle", // Will become /group/[groupId]/huddle
         },
     ],
 }
-
 export const SIDEBAR_SETTINGS_MENU: MenuProps[] = [
     {
         id: 0,

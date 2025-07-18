@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic"
 import CallToAction from "./_components/call-to-action"
 import DashboardSnippet from "./_components/dashboard-snippet"
+import SplashCursor from "./_components/SplashCursor/splashcursor"
 
 const PricingSection = dynamic(
     () =>
@@ -12,12 +13,14 @@ const PricingSection = dynamic(
 
 export default function Home() {
     return (
-        <main className="md:px-10 py-20 flex flex-col gap-36">
+        <main className="md:px-10 py-20 flex flex-col gap-20">
+            <SplashCursor/>
             <div>
                 <CallToAction />
                 <DashboardSnippet />
+                <PricingSection />
             </div>
-            <PricingSection />
+            
         </main>
     )
 }

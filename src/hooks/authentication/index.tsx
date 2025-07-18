@@ -92,33 +92,94 @@ export const useAuthSignUp = () => {
 
     const router = useRouter()
 
+    // const onGenerateCode = async (email: string, password: string) => {
+    //     if (!isLoaded)
+    //         return toast("Error", {
+    //             description: "Oops! something went wrong",
+    //         })
+    //     try {
+    //         if (email && password) {
+    //             await signUp.create({
+    //                 emailAddress: getValues("email"),
+    //                 password: getValues("password"),
+    //             })
+
+    //             await signUp.prepareEmailAddressVerification({
+    //                 strategy: "email_code",
+    //             })
+
+    //             setVerifying(true)
+    //         } else {
+    //             return toast("Error", {
+    //                 description: "No fields must be empty",
+    //             })
+    //         }
+    //     } catch (error) {
+    //         console.error(JSON.stringify(error, null, 2))
+    //     }
+    // }
     const onGenerateCode = async (email: string, password: string) => {
-        if (!isLoaded)
-            return toast("Error", {
-                description: "Oops! something went wrong",
-            })
-        try {
-            if (email && password) {
-                await signUp.create({
-                    emailAddress: getValues("email"),
-                    password: getValues("password"),
-                })
-
-                await signUp.prepareEmailAddressVerification({
-                    strategy: "email_code",
-                })
-
-                setVerifying(true)
-            } else {
-                return toast("Error", {
-                    description: "No fields must be empty",
-                })
-            }
-        } catch (error) {
-            console.error(JSON.stringify(error, null, 2))
+        // Early return if Clerk isn't loaded
+        if (!isLoaded) {
+          toast.error("System Error", {
+            description: "Authentication service is not ready. Please try again shortly.",
+          });
+          return;
         }
-    }
-
+      
+        // Validate inputs
+        if (!email || !password) {
+          toast.error("Validation Error", {
+            description: "Both email and password are required",
+          });
+          return;
+        }
+      
+        try {
+          // Start the sign-up process
+          const signUpAttempt = await signUp.create({
+            emailAddress: email,
+            password: password,
+          });
+      
+          // Check if verification is needed
+          if (signUpAttempt.status === 'complete') {
+            // Handle immediate success (unlikely but possible)
+            toast.success("Account Created", {
+              description: "Your account has been successfully created!",
+            });
+            return;
+          }
+      
+          // Prepare email verification
+          await signUp.prepareEmailAddressVerification({
+            strategy: "email_code",
+          });
+      
+          // Move to verification step
+          setVerifying(true);
+          
+          toast.success("Verification Sent", {
+            description: "Check your email for the verification code",
+          });
+      
+        } catch (error: any) {
+          console.error("Signup Error:", error);
+          
+          // Handle known Clerk errors
+          if (error.errors) {
+            const firstError = error.errors[0];
+            toast.error("Signup Failed", {
+              description: firstError.message || "Invalid signup attempt",
+            });
+          } else {
+            toast.error("Unexpected Error", {
+              description: "Could not complete signup. Please try again.",
+            });
+          }
+        }
+      };
+      
     const onInitiateUserRegistration = handleSubmit(async (values) => {
         if (!isLoaded)
             return toast("Error", {
